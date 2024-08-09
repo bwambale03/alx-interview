@@ -1,4 +1,4 @@
-#!/usr/bin/python3 env
+#!/usr/bin/python3
 '''
 Initialize triangle as an empty list.
 For each row from 0 to n-1:
