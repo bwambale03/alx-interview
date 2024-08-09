@@ -1,35 +1,46 @@
+#!/usr/bin/python3
+
+#Pascal's Triangle
+
+'''
+Initialize triangle as an empty list.
+For each row from 0 to n-1:
+    Create a new row with 1 at the beginning.
+    For each element from 1 to row_index:
+        Calculate value as the sum of the two elements above.
+        Append value to the row.
+    Append 1 at the end of the row.
+    Add the row to the triangle.
+Return triangle.
+
+'''
+
+
 def pascal_triangle(n):
-    # Return an empty list if n <= 0
+    """
+    Generate Pascal's triangle up to the nth row as a list of lists.
+
+    :param n: The number of rows to generate.
+    :return: A list of lists representing Pascal's triangle.
+    """
+    pascal_tri = []
+
     if n <= 0:
         return []
 
-    # Initialize triangle as an empty list.
-    triangle = []
-
-    # For each row from 0 to n-1:
     for i in range(n):
-        # Create a new row with 1 at the beginning.
-        row = [1]
+        if (i == 0):
+            pascal_tri.append([1])
+        else:
+            cur_row = []
+            for j in range(i + 1):
+                if (j == 0 or j == i):
+                    cur_row.append(1)
+                else:
+                    cur_row.append(pascal_tri[i - 1][j - 1] +
+                                   pascal_tri[i - 1][j])
 
-        # For each element from 1 to row_index:
-        for j in range(1, i):
-            # Calculate value as the sum of the two elements above.
-            value = triangle[i-1][j-1] + triangle[i-1][j]
-            # Append value to the row.
-            row.append(value)
+            pascal_tri.append(cur_row)
 
-        # Append 1 at the end of the row.
-        if i > 0:
-            row.append(1)
-
-        # Add the row to the triangle.
-        triangle.append(row)
-
-    # Return triangle.
-    return triangle
-
-# Example usage
-n = 5
-pascals_triangle = pascal_triangle(n)
-for row in pascals_triangle:
-    print(row)
+    return (pascal_tri)
+    
