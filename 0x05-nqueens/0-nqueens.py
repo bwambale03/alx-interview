@@ -222,3 +222,4 @@ get_solutions()
 for solution in solutions:
     print(solution):
     print(solution)
+
