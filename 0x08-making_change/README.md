@@ -8,7 +8,7 @@ This project implements a solution to the "Making Change" problem using dynamic 
 - [Usage](#usage)
 - [Algorithm](#algorithm)
 - [Example](#example)
-- [License](#MIT)
+- [License](#license)
 
 ## Installation
 
